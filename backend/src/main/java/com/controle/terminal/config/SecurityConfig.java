@@ -33,6 +33,7 @@ public class SecurityConfig {
     private final ObjectMapper objectMapper;
 
     private static final String[] PUBLIC_ENDPOINTS = {
+            "/",
             "/api/auth/login",
             "/error"
     };
