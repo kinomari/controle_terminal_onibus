@@ -24,7 +24,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       return;
     }
     api
-      .get<UsuarioLogado>('/api/auth/me')
+      .get<UsuarioLogado>('/auth/me')
       .then((resp) => setUser(resp.data))
       .catch(() => {
         setStoredToken(null);
@@ -34,7 +34,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const login = async (email: string, senha: string) => {
-    const resp = await api.post('/api/auth/login', { email, senha });
+    const resp = await api.post('/auth/login', { email, senha });
     setStoredToken(resp.data.accessToken);
     setUser(resp.data.usuario);
   };
